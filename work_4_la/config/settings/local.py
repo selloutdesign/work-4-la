@@ -59,6 +59,9 @@ DEBUG_TOOLBAR_CONFIG = {
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ['django_extensions', ]
 
+INSTALLED_APPS += ['import_export', ]
+INSTALLED_APPS += ['books.apps.BooksConfig', ]
+
 # TESTING
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'

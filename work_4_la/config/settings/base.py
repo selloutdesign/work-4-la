@@ -52,6 +52,8 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    # 'import_export',
+    'tinymce',
 ]
 
 # Apps specific for this project go here.
@@ -59,6 +61,7 @@ LOCAL_APPS = [
     # custom users app
     'work_4_la.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'jobs.apps.JobsConfig',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -119,7 +122,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    
+    # 'mongo':{
+    #     'ENGINE':'django_mongodb_engine',
+    #     'NAME':'jobs',
+    # },
 }
 
 # GENERAL CONFIGURATION
