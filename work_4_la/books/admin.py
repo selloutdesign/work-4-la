@@ -8,11 +8,11 @@ from import_export import widgets, fields, resources
 from import_export.admin import ImportExportModelAdmin
 from .models import Book, Category
 
-class CatNameWidget(widgets.ManyToManyWidget):
-    def get_queryset(self, value, row):
-        return self.model.objects.filter(
-            name__iexact=row['name']
-            )
+# class CatNameWidget(widgets.ManyToManyWidget):
+#     def get_queryset(self, value, row):
+#         return self.model.objects.filter(
+#             name__iexact=row['name']
+#             )
 
 class BookResource(resources.ModelResource):
     categories_name = fields.Field(
@@ -24,7 +24,7 @@ class BookResource(resources.ModelResource):
         model = Book
         skip_unchanged = True
         report_skipped = True
-        fields = ('id', 'name', 'author','published','price', 'categories_name')
+        fields = ('id', 'name', 'author','published','price')
         
 
 class CategoryResource(resources.ModelResource):

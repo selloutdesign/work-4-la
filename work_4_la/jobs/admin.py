@@ -42,6 +42,7 @@ class OccupationalCategoryResource(resources.ModelResource):
     class Meta:
         model = OccupationalCategory
         
+        
 class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = CategoryResource
 
@@ -57,7 +58,7 @@ class OccupationalCategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 class JobAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = JobResource
     list_filter = ['categories']
-    list_display = ('title','job_description_link')
+    list_display = ('title','job_description_link', 'salary_low')
     
 
 admin.site.register(Category, CategoryAdmin)

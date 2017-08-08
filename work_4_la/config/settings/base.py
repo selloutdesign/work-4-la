@@ -54,6 +54,8 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',  # registration
     # 'import_export',
     'tinymce',
+    'rest_framework',
+    'django_filters',
 ]
 
 # Apps specific for this project go here.
@@ -287,3 +289,12 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
