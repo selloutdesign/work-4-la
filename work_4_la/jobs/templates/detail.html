@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+<div class="container">
+    <div class="job-listing">
+        <h1>{{ object.title }}</h1>
+        <p>
+            {% for i in object.categories.all %}
+                {{i}}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+            {% endfor %}
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <p>Salary: ${{object.salary_low|intcomma}} - ${{object.salary_high|intcomma}}</p>
+            </div>
+            <div class="col-md-6">
+                <p>Link: <a href="{{object.job_description_link}}">{{object.job_description_link}}</a></p>
+            </div>
+        </div>
+        <p>{{ object.occupational_category }}</p>
+        <p>Description: {{ object.description }}</p>
+    </div>
+</div>
+{% endblock %}

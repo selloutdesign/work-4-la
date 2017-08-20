@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "/jobs/css/style.css" %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<form method="get">
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-md-6">
+                {{ filter.form.title.label_tag }}
+                {% render_field filter.form.title class="form-control" %}
+            </div>
+            <div class="form-group col-md-6">
+                {{ filter.form.description.label_tag }}
+                {% render_field filter.form.description class="form-control" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                {{ filter.form.occupational_category.label_tag }}
+                {% render_field filter.form.occupational_category class="form-control" %}
+            </div>
+            <div class="form-group col-md-6">
+                {{ filter.form.skills.label_tag }}
+                {% render_field filter.form.skills class="form-control" %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+      <button type="reset" class="btn btn-primary" value="Reset">Reset</button>
+    </div>
+</form>
+    <!--<form action="" method="get">-->
+    <!--    {{filter.form|crispy}}-->
+    <!--    <input type="submit" />-->
+    <!--</form>-->
+    {% for obj in filter.qs %}
+        <div class="job-listing">
+            <a href="/jobs/{{ obj.id }}">{{ obj.title|safe }}</a> - {{ obj.description|truncatechars:150 }}<br />
+        </div>
+    {% endfor %}
+{% endblock %}

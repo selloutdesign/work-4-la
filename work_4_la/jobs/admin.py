@@ -8,9 +8,18 @@ from .models import Job, Category, RelatedKeyword, Skill, OccupationalCategory
 # Register your models here.
 
 class JobResource(resources.ModelResource):
-    categories = fields.Field(widget=widgets.ManyToManyWidget(Category, field='name'))
-    skills = fields.Field(widget=widgets.ManyToManyWidget(Skill, field='name'))
-    related_keywords = fields.Field(widget=widgets.ManyToManyWidget(RelatedKeyword, field='name'))
+    categories = fields.Field(
+        column_name='categories',
+        attribute='categories',
+        widget=widgets.ManyToManyWidget(Category, field='name'))
+    skills = fields.Field(
+        column_name='skills',
+        attribute='skills',
+        widget=widgets.ManyToManyWidget(Skill, field='name'))
+    related_keywords = fields.Field(
+        column_name='related_keywords',
+        attribute='related_keywords',
+        widget=widgets.ManyToManyWidget(RelatedKeyword, field='name'))
     occupational_category = fields.Field(
         column_name='occupational_category',
         attribute='occupational_category',

@@ -4,8 +4,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from rest_framework import routers
 
+from rest_framework_jwt.views import obtain_jwt_token
+from drf_auth.views import GroupViewSet
 
+router = routers.DefaultRouter()
+# router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
@@ -19,7 +24,12 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^', include('jobs.urls'))
+    url(r'^', include('jobs.urls')),
+    url(r'^', include('drf_auth.urls')),
+    url(r'^', include(router.urls)),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^api-token-auth/', obtain_jwt_token),
+    
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

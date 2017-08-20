@@ -22,9 +22,9 @@
     <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/business.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" />
-    
+    <link rel="stylesheet" href="{% static 'css/jobs/style.css' %}" type="text/css" />
     {% endblock %}
-
+    {% block extra_css %} {% endblock %}
   </head>
 
   <body>
@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{% url 'why' %}">Why</a>
+                        <a href="{% url 'job-list' %}">Jobs</a>
                     </li>
                     <li>
                         <a href="services.html">Services</a>
