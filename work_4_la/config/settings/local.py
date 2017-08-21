@@ -69,4 +69,5 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
 
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['work-4-la-poundimal.c9users.io', '0.0.0.0' ])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['work-4-la-poundimal.c9users.io', '0.0.0.0',    'localhost',
+    '127.0.0.1', ])

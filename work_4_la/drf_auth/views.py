@@ -19,7 +19,7 @@ class SignUp(generics.CreateAPIView):
     permission_classes = (IsAuthenticatedOrCreate,)
 
 class GroupViewSet(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated, TokenHasScope]
+    permission_classes = (IsAuthenticatedOrCreate,)
     required_scopes = ['groups']
     queryset = Group.objects.all()
     serializer_class = GroupSerializer

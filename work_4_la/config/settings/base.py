@@ -320,20 +320,20 @@ REST_FRAMEWORK = {
     ]
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:4200',
-    )
+
     
 CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Origin',
 )
-    
+
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:4200',
+    )
+
 CORS_PREFLIGHT_MAX_AGE = 86400
 
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_URLS_REGEX = r'^/jobs/.*$'
+# CORS_URLS_REGEX = r'^/jobs/.*$'

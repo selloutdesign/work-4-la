@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^', include('drf_auth.urls')),
     url(r'^', include(router.urls)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^api-token-auth/$', obtain_jwt_token),
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
